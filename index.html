@@ -3,60 +3,327 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Compra productos por categorías y ofertas con Ventafacil, la tienda fácil y rápida.">
-  <meta name="theme-color" content="#ffe600">
-  <link rel="manifest" href="manifest.json">
-  <link rel="stylesheet" href="style.css" />
-  <link rel="icon" href="images/logo.png" />
-  <title>Ventafacil</title>
+  <title>Tienda Estilo MercadoLibre</title>
+  <link rel="manifest" href="manifest.json" />
+  <link rel="icon" href="favicon.ico" />
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/service-worker.js');
+      });
+    }
+  </script>
+  <script defer>
+    function toggleMenu() {
+      const nav = document.getElementById("mobileMenu");
+      nav.classList.toggle("hidden");
+    }
+  </script>
 </head>
-<body>
-  <div id="splash-screen">
-    <img src="images/logo.png" alt="Cargando..." class="palpita">
-  </div>
+<body class="bg-gray-100 text-gray-800">
 
-  <div id="menu-btn">&#9776;</div>
-  <nav id="menu-slider">
-    <a href="#ofertas">Ofertas del Día</a>
-    <a href="#tecnologia">Tecnología</a>
-    <a href="#hogar">Hogar</a>
-    <a href="#ropa">Ropa</a>
-    <a href="#juguetes">Juguetes</a>
-    <a href="#usados">Usados</a>
-    <a href="#contacto">Contacto</a>
-    <a href="#faq">Preguntas Frecuentes</a>
-  </nav>
+  <!-- Header -->
+  <header class="bg-yellow-600 p-4">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      <div class="flex items-center space-x-2">
+        <img src="logo.png" alt="Logo" class="w-10 h-10" />
+        <h1 class="text-white text-2xl font-bold">MiTienda</h1>
+      </div>
+      <input type="text" placeholder="Buscar productos..." class="hidden md:block w-1/2 p-2 rounded-md" />
+      <button class="md:hidden text-white" onclick="toggleMenu()">☰</button>
+      <nav class="hidden md:flex space-x-4 text-white">
+        <a href="#" class="hover:underline">Inicio</a>
+        <a href="#" class="hover:underline">Categorías</a>
+        <a href="#" class="hover:underline">Ofertas</a>
+        <a href="#" class="hover:underline">Ayuda</a>
+      </nav>
+    </div>
+    <div id="mobileMenu" class="md:hidden hidden bg-yellow-500 p-4 mt-2 rounded text-white space-y-2">
+      <a href="#" class="block">Inicio</a>
+      <a href="#" class="block">Categorías</a>
+      <a href="#" class="block">Ofertas</a>
+      <a href="#" class="block">Ayuda</a>
+    </div>
+  </header>
 
-  <main>
-    <section id="ofertas"><h2>🔥 Ofertas del Día</h2><div class="productos-container categoria-ofertas"></div></section>
-    <section id="tecnologia"><h2>💻 Tecnología</h2><div class="productos-container categoria-tecnologia"></div></section>
-    <section id="hogar"><h2>🏠 Hogar</h2><div class="productos-container categoria-hogar"></div></section>
-    <section id="ropa"><h2>👕 Ropa</h2><div class="productos-container categoria-ropa"></div></section>
-    <section id="juguetes"><h2>🧸 Juguetes</h2><div class="productos-container categoria-juguetes"></div></section>
-    <section id="usados"><h2>♻️ Usados</h2><div class="productos-container categoria-usados"></div></section>
+  <!-- Ofertas del Día -->
+  <main class="max-w-7xl mx-auto py-8 px-4">
+    <h2 class="text-2xl font-bold mb-4">🔥 Ofertas del día</h2>
+    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6 mb-10">
 
-    <section id="contacto"><h2>📞 Contacto</h2><p>Escríbenos a <a href="mailto:info@ventafacil.com">info@ventafacil.com</a> o al WhatsApp +573205893469</p></section>
-    <section id="faq"><h2>❓ Preguntas Frecuentes</h2><ul><li>¿Cómo compro un producto?</li><li>¿Qué formas de pago aceptan?</li><li>¿Hacen envíos a todo el país?</li></ul></section>
+      <div class="bg-white rounded-lg shadow hover:shadow-lg transition p-4">
+        <img src="https://via.placeholder.com/200?text=Producto+1" alt="Producto 1" class="w-full h-40 object-cover mb-2 rounded" />
+        <h3 class="font-semibold text-lg">Producto 1</h3>
+        <p class="text-yellow-700 font-bold">$10000</p>
+        <button class="mt-2 bg-yellow-600 text-white px-4 py-2 rounded hover:bg-yellow-700 w-full">Comprar</button>
+      </div>
+    
+      <div class="bg-white rounded-lg shadow hover:shadow-lg transition p-4">
+        <img src="https://via.placeholder.com/200?text=Producto+2" alt="Producto 2" class="w-full h-40 object-cover mb-2 rounded" />
+        <h3 class="font-semibold text-lg">Producto 2</h3>
+        <p class="text-yellow-700 font-bold">$11000</p>
+        <button class="mt-2 bg-yellow-600 text-white px-4 py-2 rounded hover:bg-yellow-700 w-full">Comprar</button>
+      </div>
+    
+      <div class="bg-white rounded-lg shadow hover:shadow-lg transition p-4">
+        <img src="https://via.placeholder.com/200?text=Producto+3" alt="Producto 3" class="w-full h-40 object-cover mb-2 rounded" />
+        <h3 class="font-semibold text-lg">Producto 3</h3>
+        <p class="text-yellow-700 font-bold">$12000</p>
+        <button class="mt-2 bg-yellow-600 text-white px-4 py-2 rounded hover:bg-yellow-700 w-full">Comprar</button>
+      </div>
+    
+      <div class="bg-white rounded-lg shadow hover:shadow-lg transition p-4">
+        <img src="https://via.placeholder.com/200?text=Producto+4" alt="Producto 4" class="w-full h-40 object-cover mb-2 rounded" />
+        <h3 class="font-semibold text-lg">Producto 4</h3>
+        <p class="text-yellow-700 font-bold">$13000</p>
+        <button class="mt-2 bg-yellow-600 text-white px-4 py-2 rounded hover:bg-yellow-700 w-full">Comprar</button>
+      </div>
+    
+      <div class="bg-white rounded-lg shadow hover:shadow-lg transition p-4">
+        <img src="https://via.placeholder.com/200?text=Producto+5" alt="Producto 5" class="w-full h-40 object-cover mb-2 rounded" />
+        <h3 class="font-semibold text-lg">Producto 5</h3>
+        <p class="text-yellow-700 font-bold">$14000</p>
+        <button class="mt-2 bg-yellow-600 text-white px-4 py-2 rounded hover:bg-yellow-700 w-full">Comprar</button>
+      </div>
+    
+      <div class="bg-white rounded-lg shadow hover:shadow-lg transition p-4">
+        <img src="https://via.placeholder.com/200?text=Producto+6" alt="Producto 6" class="w-full h-40 object-cover mb-2 rounded" />
+        <h3 class="font-semibold text-lg">Producto 6</h3>
+        <p class="text-yellow-700 font-bold">$15000</p>
+        <button class="mt-2 bg-yellow-600 text-white px-4 py-2 rounded hover:bg-yellow-700 w-full">Comprar</button>
+      </div>
+    
+      <div class="bg-white rounded-lg shadow hover:shadow-lg transition p-4">
+        <img src="https://via.placeholder.com/200?text=Producto+7" alt="Producto 7" class="w-full h-40 object-cover mb-2 rounded" />
+        <h3 class="font-semibold text-lg">Producto 7</h3>
+        <p class="text-yellow-700 font-bold">$16000</p>
+        <button class="mt-2 bg-yellow-600 text-white px-4 py-2 rounded hover:bg-yellow-700 w-full">Comprar</button>
+      </div>
+    
+      <div class="bg-white rounded-lg shadow hover:shadow-lg transition p-4">
+        <img src="https://via.placeholder.com/200?text=Producto+8" alt="Producto 8" class="w-full h-40 object-cover mb-2 rounded" />
+        <h3 class="font-semibold text-lg">Producto 8</h3>
+        <p class="text-yellow-700 font-bold">$17000</p>
+        <button class="mt-2 bg-yellow-600 text-white px-4 py-2 rounded hover:bg-yellow-700 w-full">Comprar</button>
+      </div>
+    
+      <div class="bg-white rounded-lg shadow hover:shadow-lg transition p-4">
+        <img src="https://via.placeholder.com/200?text=Producto+9" alt="Producto 9" class="w-full h-40 object-cover mb-2 rounded" />
+        <h3 class="font-semibold text-lg">Producto 9</h3>
+        <p class="text-yellow-700 font-bold">$18000</p>
+        <button class="mt-2 bg-yellow-600 text-white px-4 py-2 rounded hover:bg-yellow-700 w-full">Comprar</button>
+      </div>
+    
+      <div class="bg-white rounded-lg shadow hover:shadow-lg transition p-4">
+        <img src="https://via.placeholder.com/200?text=Producto+10" alt="Producto 10" class="w-full h-40 object-cover mb-2 rounded" />
+        <h3 class="font-semibold text-lg">Producto 10</h3>
+        <p class="text-yellow-700 font-bold">$19000</p>
+        <button class="mt-2 bg-yellow-600 text-white px-4 py-2 rounded hover:bg-yellow-700 w-full">Comprar</button>
+      </div>
+    
+    </div>
+    <h2 class="text-2xl font-bold mb-4 mt-10">Tecnología</h2>
+    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6">
+    
+      <div class="bg-white rounded-lg shadow hover:shadow-lg transition p-4">
+        <img src="https://via.placeholder.com/200?text=Tecnología+11" alt="Tecnología 11" class="w-full h-40 object-cover mb-2 rounded" />
+        <h3 class="font-semibold text-lg">Tecnología 11</h3>
+        <p class="text-yellow-700 font-bold">$16000</p>
+        <button class="mt-2 bg-yellow-600 text-white px-4 py-2 rounded hover:bg-yellow-700 w-full">Comprar</button>
+      </div>
+        
+      <div class="bg-white rounded-lg shadow hover:shadow-lg transition p-4">
+        <img src="https://via.placeholder.com/200?text=Tecnología+12" alt="Tecnología 12" class="w-full h-40 object-cover mb-2 rounded" />
+        <h3 class="font-semibold text-lg">Tecnología 12</h3>
+        <p class="text-yellow-700 font-bold">$17000</p>
+        <button class="mt-2 bg-yellow-600 text-white px-4 py-2 rounded hover:bg-yellow-700 w-full">Comprar</button>
+      </div>
+        
+      <div class="bg-white rounded-lg shadow hover:shadow-lg transition p-4">
+        <img src="https://via.placeholder.com/200?text=Tecnología+13" alt="Tecnología 13" class="w-full h-40 object-cover mb-2 rounded" />
+        <h3 class="font-semibold text-lg">Tecnología 13</h3>
+        <p class="text-yellow-700 font-bold">$18000</p>
+        <button class="mt-2 bg-yellow-600 text-white px-4 py-2 rounded hover:bg-yellow-700 w-full">Comprar</button>
+      </div>
+        
+      <div class="bg-white rounded-lg shadow hover:shadow-lg transition p-4">
+        <img src="https://via.placeholder.com/200?text=Tecnología+14" alt="Tecnología 14" class="w-full h-40 object-cover mb-2 rounded" />
+        <h3 class="font-semibold text-lg">Tecnología 14</h3>
+        <p class="text-yellow-700 font-bold">$19000</p>
+        <button class="mt-2 bg-yellow-600 text-white px-4 py-2 rounded hover:bg-yellow-700 w-full">Comprar</button>
+      </div>
+        
+      <div class="bg-white rounded-lg shadow hover:shadow-lg transition p-4">
+        <img src="https://via.placeholder.com/200?text=Tecnología+15" alt="Tecnología 15" class="w-full h-40 object-cover mb-2 rounded" />
+        <h3 class="font-semibold text-lg">Tecnología 15</h3>
+        <p class="text-yellow-700 font-bold">$20000</p>
+        <button class="mt-2 bg-yellow-600 text-white px-4 py-2 rounded hover:bg-yellow-700 w-full">Comprar</button>
+      </div>
+        
+    </div>
+    <h2 class="text-2xl font-bold mb-4 mt-10">Hogar</h2>
+    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6">
+    
+      <div class="bg-white rounded-lg shadow hover:shadow-lg transition p-4">
+        <img src="https://via.placeholder.com/200?text=Hogar+16" alt="Hogar 16" class="w-full h-40 object-cover mb-2 rounded" />
+        <h3 class="font-semibold text-lg">Hogar 16</h3>
+        <p class="text-yellow-700 font-bold">$21000</p>
+        <button class="mt-2 bg-yellow-600 text-white px-4 py-2 rounded hover:bg-yellow-700 w-full">Comprar</button>
+      </div>
+        
+      <div class="bg-white rounded-lg shadow hover:shadow-lg transition p-4">
+        <img src="https://via.placeholder.com/200?text=Hogar+17" alt="Hogar 17" class="w-full h-40 object-cover mb-2 rounded" />
+        <h3 class="font-semibold text-lg">Hogar 17</h3>
+        <p class="text-yellow-700 font-bold">$22000</p>
+        <button class="mt-2 bg-yellow-600 text-white px-4 py-2 rounded hover:bg-yellow-700 w-full">Comprar</button>
+      </div>
+        
+      <div class="bg-white rounded-lg shadow hover:shadow-lg transition p-4">
+        <img src="https://via.placeholder.com/200?text=Hogar+18" alt="Hogar 18" class="w-full h-40 object-cover mb-2 rounded" />
+        <h3 class="font-semibold text-lg">Hogar 18</h3>
+        <p class="text-yellow-700 font-bold">$23000</p>
+        <button class="mt-2 bg-yellow-600 text-white px-4 py-2 rounded hover:bg-yellow-700 w-full">Comprar</button>
+      </div>
+        
+      <div class="bg-white rounded-lg shadow hover:shadow-lg transition p-4">
+        <img src="https://via.placeholder.com/200?text=Hogar+19" alt="Hogar 19" class="w-full h-40 object-cover mb-2 rounded" />
+        <h3 class="font-semibold text-lg">Hogar 19</h3>
+        <p class="text-yellow-700 font-bold">$24000</p>
+        <button class="mt-2 bg-yellow-600 text-white px-4 py-2 rounded hover:bg-yellow-700 w-full">Comprar</button>
+      </div>
+        
+      <div class="bg-white rounded-lg shadow hover:shadow-lg transition p-4">
+        <img src="https://via.placeholder.com/200?text=Hogar+20" alt="Hogar 20" class="w-full h-40 object-cover mb-2 rounded" />
+        <h3 class="font-semibold text-lg">Hogar 20</h3>
+        <p class="text-yellow-700 font-bold">$25000</p>
+        <button class="mt-2 bg-yellow-600 text-white px-4 py-2 rounded hover:bg-yellow-700 w-full">Comprar</button>
+      </div>
+        
+    </div>
+    <h2 class="text-2xl font-bold mb-4 mt-10">Ropa</h2>
+    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6">
+    
+      <div class="bg-white rounded-lg shadow hover:shadow-lg transition p-4">
+        <img src="https://via.placeholder.com/200?text=Ropa+21" alt="Ropa 21" class="w-full h-40 object-cover mb-2 rounded" />
+        <h3 class="font-semibold text-lg">Ropa 21</h3>
+        <p class="text-yellow-700 font-bold">$26000</p>
+        <button class="mt-2 bg-yellow-600 text-white px-4 py-2 rounded hover:bg-yellow-700 w-full">Comprar</button>
+      </div>
+        
+      <div class="bg-white rounded-lg shadow hover:shadow-lg transition p-4">
+        <img src="https://via.placeholder.com/200?text=Ropa+22" alt="Ropa 22" class="w-full h-40 object-cover mb-2 rounded" />
+        <h3 class="font-semibold text-lg">Ropa 22</h3>
+        <p class="text-yellow-700 font-bold">$27000</p>
+        <button class="mt-2 bg-yellow-600 text-white px-4 py-2 rounded hover:bg-yellow-700 w-full">Comprar</button>
+      </div>
+        
+      <div class="bg-white rounded-lg shadow hover:shadow-lg transition p-4">
+        <img src="https://via.placeholder.com/200?text=Ropa+23" alt="Ropa 23" class="w-full h-40 object-cover mb-2 rounded" />
+        <h3 class="font-semibold text-lg">Ropa 23</h3>
+        <p class="text-yellow-700 font-bold">$28000</p>
+        <button class="mt-2 bg-yellow-600 text-white px-4 py-2 rounded hover:bg-yellow-700 w-full">Comprar</button>
+      </div>
+        
+      <div class="bg-white rounded-lg shadow hover:shadow-lg transition p-4">
+        <img src="https://via.placeholder.com/200?text=Ropa+24" alt="Ropa 24" class="w-full h-40 object-cover mb-2 rounded" />
+        <h3 class="font-semibold text-lg">Ropa 24</h3>
+        <p class="text-yellow-700 font-bold">$29000</p>
+        <button class="mt-2 bg-yellow-600 text-white px-4 py-2 rounded hover:bg-yellow-700 w-full">Comprar</button>
+      </div>
+        
+      <div class="bg-white rounded-lg shadow hover:shadow-lg transition p-4">
+        <img src="https://via.placeholder.com/200?text=Ropa+25" alt="Ropa 25" class="w-full h-40 object-cover mb-2 rounded" />
+        <h3 class="font-semibold text-lg">Ropa 25</h3>
+        <p class="text-yellow-700 font-bold">$30000</p>
+        <button class="mt-2 bg-yellow-600 text-white px-4 py-2 rounded hover:bg-yellow-700 w-full">Comprar</button>
+      </div>
+        
+    </div>
+    <h2 class="text-2xl font-bold mb-4 mt-10">Juguetes</h2>
+    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6">
+    
+      <div class="bg-white rounded-lg shadow hover:shadow-lg transition p-4">
+        <img src="https://via.placeholder.com/200?text=Juguetes+26" alt="Juguetes 26" class="w-full h-40 object-cover mb-2 rounded" />
+        <h3 class="font-semibold text-lg">Juguetes 26</h3>
+        <p class="text-yellow-700 font-bold">$31000</p>
+        <button class="mt-2 bg-yellow-600 text-white px-4 py-2 rounded hover:bg-yellow-700 w-full">Comprar</button>
+      </div>
+        
+      <div class="bg-white rounded-lg shadow hover:shadow-lg transition p-4">
+        <img src="https://via.placeholder.com/200?text=Juguetes+27" alt="Juguetes 27" class="w-full h-40 object-cover mb-2 rounded" />
+        <h3 class="font-semibold text-lg">Juguetes 27</h3>
+        <p class="text-yellow-700 font-bold">$32000</p>
+        <button class="mt-2 bg-yellow-600 text-white px-4 py-2 rounded hover:bg-yellow-700 w-full">Comprar</button>
+      </div>
+        
+      <div class="bg-white rounded-lg shadow hover:shadow-lg transition p-4">
+        <img src="https://via.placeholder.com/200?text=Juguetes+28" alt="Juguetes 28" class="w-full h-40 object-cover mb-2 rounded" />
+        <h3 class="font-semibold text-lg">Juguetes 28</h3>
+        <p class="text-yellow-700 font-bold">$33000</p>
+        <button class="mt-2 bg-yellow-600 text-white px-4 py-2 rounded hover:bg-yellow-700 w-full">Comprar</button>
+      </div>
+        
+      <div class="bg-white rounded-lg shadow hover:shadow-lg transition p-4">
+        <img src="https://via.placeholder.com/200?text=Juguetes+29" alt="Juguetes 29" class="w-full h-40 object-cover mb-2 rounded" />
+        <h3 class="font-semibold text-lg">Juguetes 29</h3>
+        <p class="text-yellow-700 font-bold">$34000</p>
+        <button class="mt-2 bg-yellow-600 text-white px-4 py-2 rounded hover:bg-yellow-700 w-full">Comprar</button>
+      </div>
+        
+      <div class="bg-white rounded-lg shadow hover:shadow-lg transition p-4">
+        <img src="https://via.placeholder.com/200?text=Juguetes+30" alt="Juguetes 30" class="w-full h-40 object-cover mb-2 rounded" />
+        <h3 class="font-semibold text-lg">Juguetes 30</h3>
+        <p class="text-yellow-700 font-bold">$35000</p>
+        <button class="mt-2 bg-yellow-600 text-white px-4 py-2 rounded hover:bg-yellow-700 w-full">Comprar</button>
+      </div>
+        
+    </div>
+    <h2 class="text-2xl font-bold mb-4 mt-10">Deportes</h2>
+    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6">
+    
+      <div class="bg-white rounded-lg shadow hover:shadow-lg transition p-4">
+        <img src="https://via.placeholder.com/200?text=Deportes+31" alt="Deportes 31" class="w-full h-40 object-cover mb-2 rounded" />
+        <h3 class="font-semibold text-lg">Deportes 31</h3>
+        <p class="text-yellow-700 font-bold">$36000</p>
+        <button class="mt-2 bg-yellow-600 text-white px-4 py-2 rounded hover:bg-yellow-700 w-full">Comprar</button>
+      </div>
+        
+      <div class="bg-white rounded-lg shadow hover:shadow-lg transition p-4">
+        <img src="https://via.placeholder.com/200?text=Deportes+32" alt="Deportes 32" class="w-full h-40 object-cover mb-2 rounded" />
+        <h3 class="font-semibold text-lg">Deportes 32</h3>
+        <p class="text-yellow-700 font-bold">$37000</p>
+        <button class="mt-2 bg-yellow-600 text-white px-4 py-2 rounded hover:bg-yellow-700 w-full">Comprar</button>
+      </div>
+        
+      <div class="bg-white rounded-lg shadow hover:shadow-lg transition p-4">
+        <img src="https://via.placeholder.com/200?text=Deportes+33" alt="Deportes 33" class="w-full h-40 object-cover mb-2 rounded" />
+        <h3 class="font-semibold text-lg">Deportes 33</h3>
+        <p class="text-yellow-700 font-bold">$38000</p>
+        <button class="mt-2 bg-yellow-600 text-white px-4 py-2 rounded hover:bg-yellow-700 w-full">Comprar</button>
+      </div>
+        
+      <div class="bg-white rounded-lg shadow hover:shadow-lg transition p-4">
+        <img src="https://via.placeholder.com/200?text=Deportes+34" alt="Deportes 34" class="w-full h-40 object-cover mb-2 rounded" />
+        <h3 class="font-semibold text-lg">Deportes 34</h3>
+        <p class="text-yellow-700 font-bold">$39000</p>
+        <button class="mt-2 bg-yellow-600 text-white px-4 py-2 rounded hover:bg-yellow-700 w-full">Comprar</button>
+      </div>
+        
+      <div class="bg-white rounded-lg shadow hover:shadow-lg transition p-4">
+        <img src="https://via.placeholder.com/200?text=Deportes+35" alt="Deportes 35" class="w-full h-40 object-cover mb-2 rounded" />
+        <h3 class="font-semibold text-lg">Deportes 35</h3>
+        <p class="text-yellow-700 font-bold">$40000</p>
+        <button class="mt-2 bg-yellow-600 text-white px-4 py-2 rounded hover:bg-yellow-700 w-full">Comprar</button>
+      </div>
+        
+    </div>
   </main>
-
-  <footer>
-    <div class="footer-contenido">
-      <p>© 2025 Ventafacil</p>
-      <button id="compartir-pagina">📤 Compartir esta página</button>
+  <footer class="bg-gray-900 text-white text-sm py-6 mt-10">
+    <div class="max-w-7xl mx-auto text-center">
+      <p>&copy; 2025 MiTienda. Todos los derechos reservados.</p>
+      <p>Inspirado en MercadoLibre</p>
     </div>
   </footer>
-
-  <div id="popup" class="popup hidden">
-    <div class="popup-content">
-      <span class="close-btn" onclick="cerrarPopup()">×</span>
-      <h2 id="popup-titulo"></h2>
-      <img id="popup-imagen" src="" alt="" style="width: 100%;">
-      <p id="popup-desc"></p>
-      <p><strong id="popup-precio"></strong></p>
-      <a id="popup-whatsapp" target="_blank" class="boton-comprar">Comprar por WhatsApp</a>
-    </div>
-  </div>
-
-  <script src="script.js"></script>
 </body>
 </html>
