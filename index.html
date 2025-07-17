@@ -3,35 +3,48 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Compra productos de forma fácil, rápida y segura en Ventafacil. Contacto directo por WhatsApp.">
-  <meta name="keywords" content="compras, tienda online, WhatsApp, ecommerce, fácil, productos">
-  <meta name="author" content="Ventafacil">
-  <meta property="og:title" content="Ventafacil">
-  <meta property="og:description" content="Compra productos de forma fácil, rápida y segura en Ventafacil.">
-  <meta property="og:image" content="images/logo.png">
-  <meta property="og:url" content="https://johnbeta1977.github.io/ventafacil/">
-  <meta property="og:type" content="website">
-  <link rel="icon" href="images/logo.png" type="image/png">
-  <link rel="stylesheet" href="style.css">
+  <meta name="description" content="Compra productos por categorías y ofertas con Ventafacil, la tienda fácil y rápida.">
+  <meta name="theme-color" content="#ffe600">
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="images/logo.png" />
   <title>Ventafacil</title>
 </head>
 <body>
+  <div id="splash-screen">
+    <img src="images/logo.png" alt="Cargando..." class="palpita">
+  </div>
+
   <div id="menu-btn">&#9776;</div>
   <nav id="menu-slider">
-    <a href="#inicio">Inicio</a>
-    <a href="#productos">Productos</a>
+    <a href="#ofertas">Ofertas del Día</a>
+    <a href="#tecnologia">Tecnología</a>
+    <a href="#hogar">Hogar</a>
+    <a href="#ropa">Ropa</a>
+    <a href="#juguetes">Juguetes</a>
+    <a href="#usados">Usados</a>
     <a href="#contacto">Contacto</a>
+    <a href="#faq">Preguntas Frecuentes</a>
   </nav>
 
-  <main id="productos" class="productos-container">
-    <div class="producto">
-      <h2>Producto 1</h2>
-      <img src="images/producto1.jpg" alt="Producto 1" style="width:100%">
-      <p>$15.000</p>
-      <button onclick="mostrarPopup('Producto 1', 'Descripción breve del producto', 'images/producto1.jpg', '15000')">Ver</button>
-      <button onclick="compartirProducto('Producto 1', 'https://johnbeta1977.github.io/ventafacil/', 'images/producto1.jpg')">Compartir</button>
-    </div>
+  <main>
+    <section id="ofertas"><h2>🔥 Ofertas del Día</h2><div class="productos-container categoria-ofertas"></div></section>
+    <section id="tecnologia"><h2>💻 Tecnología</h2><div class="productos-container categoria-tecnologia"></div></section>
+    <section id="hogar"><h2>🏠 Hogar</h2><div class="productos-container categoria-hogar"></div></section>
+    <section id="ropa"><h2>👕 Ropa</h2><div class="productos-container categoria-ropa"></div></section>
+    <section id="juguetes"><h2>🧸 Juguetes</h2><div class="productos-container categoria-juguetes"></div></section>
+    <section id="usados"><h2>♻️ Usados</h2><div class="productos-container categoria-usados"></div></section>
+
+    <section id="contacto"><h2>📞 Contacto</h2><p>Escríbenos a <a href="mailto:info@ventafacil.com">info@ventafacil.com</a> o al WhatsApp +573205893469</p></section>
+    <section id="faq"><h2>❓ Preguntas Frecuentes</h2><ul><li>¿Cómo compro un producto?</li><li>¿Qué formas de pago aceptan?</li><li>¿Hacen envíos a todo el país?</li></ul></section>
   </main>
+
+  <footer>
+    <div class="footer-contenido">
+      <p>© 2025 Ventafacil</p>
+      <button id="compartir-pagina">📤 Compartir esta página</button>
+    </div>
+  </footer>
 
   <div id="popup" class="popup hidden">
     <div class="popup-content">
@@ -40,16 +53,9 @@
       <img id="popup-imagen" src="" alt="" style="width: 100%;">
       <p id="popup-desc"></p>
       <p><strong id="popup-precio"></strong></p>
-      <a id="popup-whatsapp" target="_blank">Comprar por WhatsApp</a>
+      <a id="popup-whatsapp" target="_blank" class="boton-comprar">Comprar por WhatsApp</a>
     </div>
   </div>
-
-  <footer>
-    <div class="footer-contenido">
-      <p>© 2025 Ventafacil</p>
-      <button id="compartir-pagina">📤 Compartir esta página</button>
-    </div>
-  </footer>
 
   <script src="script.js"></script>
 </body>

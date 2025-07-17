@@ -1,15 +1,13 @@
+
 self.addEventListener('install', function(event) {
-  event.waitUntil(
-    caches.open('mitienda-cache-v1').then(function(cache) {
-      return cache.addAll([
-        '/',
-        '/index.html',
-        '/manifest.json',
-        '/icon-192.png',
-        '/icon-512.png'
-      ]);
-    })
-  );
+  event.waitUntil(caches.open('ventafacil-cache').then(function(cache) {
+    return cache.addAll([
+      '/',
+      '/index.html',
+      '/style.css',
+      '/script.js'
+    ]);
+  }));
 });
 
 self.addEventListener('fetch', function(event) {

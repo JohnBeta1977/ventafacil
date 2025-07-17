@@ -1,6 +1,22 @@
 
+window.addEventListener('load', () => {
+  setTimeout(() => document.getElementById('splash-screen').style.display = 'none', 3000);
+});
+
 document.getElementById("menu-btn").addEventListener("click", function () {
   document.getElementById("menu-slider").classList.toggle("active");
+});
+
+document.getElementById('compartir-pagina').addEventListener('click', () => {
+  if (navigator.share) {
+    navigator.share({
+      title: 'Ventafacil',
+      text: 'Explora y compra fácil con Ventafacil',
+      url: window.location.href
+    });
+  } else {
+    alert('Tu navegador no soporta esta función.');
+  }
 });
 
 function mostrarPopup(titulo, descripcion, imagen, precio) {
@@ -14,32 +30,4 @@ function mostrarPopup(titulo, descripcion, imagen, precio) {
 
 function cerrarPopup() {
   document.getElementById('popup').classList.add('hidden');
-}
-
-document.getElementById('compartir-pagina').addEventListener('click', () => {
-  if (navigator.share) {
-    navigator.share({
-      title: 'Ventafacil',
-      text: 'Explora y compra fácil con Ventafacil',
-      url: window.location.href
-    });
-  } else {
-    alert('Tu navegador no soporta compartir esta función.');
-  }
-});
-
-function compartirProducto(nombre, url, imagen) {
-  if (navigator.share) {
-    navigator.share({
-      title: nombre,
-      text: `Mira este producto: ${nombre}`,
-      url: url,
-    }).then(() => {
-      console.log('Compartido exitosamente');
-    }).catch((error) => {
-      console.error('Error al compartir', error);
-    });
-  } else {
-    alert("Tu navegador no soporta Web Share API");
-  }
 }
